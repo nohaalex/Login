@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <hr />
+   
+</div>
+
+@model Login.Models._login;
+
+<div class="container">
+    <form asp-action="Index" asp-controller="Home" method="post" >
+        <fieldset>
+            <legend> Login</legend>
+            <div class="form-floating col-4">
+                <input class="form-control col-4" asp-for="Username" id="username"/>
+                <label class="form-label" asp-for="Username" id="username"></label>
+            </div> 
+            <br />
+            <div class="form-floating col-4">
+                <input class="form-control col-4" asp-for="Password" id="Password" />
+                <label class="form-label" asp-for="Password" id="Password">Password</label>
+            </div>
+            <br />
+           
+                <input asp-for="RememberMe" id="RememberMe" />
+                <label class="form-label" asp-for="RememberMe" id="RememberMe"></label>
+           
+            <br />
+            
+                <input class="btn btn-outline-primary" type="submit" name="submit" id="submit" />
+              <br />
+            <br />
+        </fieldset>
+    </form>
+</div>
+
+@section Scripts{
+    @await Html.PartialAsync("/Views/Shared/_ValidationScriptsPartial.cshtml")
+}
